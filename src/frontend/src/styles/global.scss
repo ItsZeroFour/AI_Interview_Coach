@@ -1,0 +1,83 @@
+@import "./variables";
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @include respond-to($breakpoint-sm) {
+    font-size: 14px;
+  }
+}
+
+body {
+  font-family: $font-family;
+  font-size: $font-size-base;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-normal;
+  color: $color-text-primary;
+  background-color: $color-bg-primary;
+  min-height: 100vh;
+}
+
+a {
+  color: $color-accent;
+  text-decoration: none;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $color-accent-hover;
+  }
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+input,
+textarea {
+  font-family: inherit;
+  outline: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+::selection {
+  background: $color-accent;
+  color: $color-text-primary;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $color-border;
+  border-radius: $radius-full;
+}
+
+.page {
+  @include container;
+  padding-top: $spacing-3xl;
+  padding-bottom: $spacing-3xl;
+}

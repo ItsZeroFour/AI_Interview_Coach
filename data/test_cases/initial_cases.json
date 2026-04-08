@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "scenario": "Junior Frontend, React вакансия",
+    "resume_summary": "1 год опыта, HTML/CSS/JS, React basics, проект на Next.js",
+    "job_summary": "Junior Frontend Developer, React, TypeScript, REST API",
+    "sample_answer": "Я использовал React в учебном проекте, делал Todo-приложение с хуками",
+    "answer_quality": "weak",
+    "expected_feedback_contains": ["конкретные примеры", "результат", "масштаб проекта"]
+  },
+  {
+    "id": 2,
+    "scenario": "Middle Backend, Python вакансия",
+    "resume_summary": "3 года опыта, Python, Django, PostgreSQL, Docker, CI/CD",
+    "job_summary": "Middle Python Developer, FastAPI, микросервисы, AWS",
+    "sample_answer": "На прошлом проекте я спроектировал систему очередей на RabbitMQ, которая обрабатывала 10k сообщений в минуту и снизила время ответа API с 2с до 200мс",
+    "answer_quality": "strong",
+    "expected_feedback_contains": ["конкретные цифры", "архитектурное решение", "измеримый результат"]
+  },
+  {
+    "id": 3,
+    "scenario": "Нерелевантный ответ",
+    "resume_summary": "2 года QA, автотесты на Python, Selenium",
+    "job_summary": "QA Engineer, автоматизация тестирования, CI/CD",
+    "sample_answer": "Мне нравится программировать и я хочу развиваться",
+    "answer_quality": "off_topic",
+    "expected_feedback_contains": ["конкретика", "не отвечает на вопрос", "STAR"]
+  }
+]
