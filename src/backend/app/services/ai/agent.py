@@ -7,7 +7,7 @@ from app.models.schemas import (
     CompetencyScore,
     ChatMessage,
 )
-from app.services.ai.gemini_client import generate, generate_json
+from app.services.ai.groq_client import generate, generate_json
 from app.services.ai.prompts import (
     SYSTEM_INTERVIEWER,
     BASELINE_QUESTION,
