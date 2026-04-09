@@ -6,10 +6,14 @@ load_dotenv()
 
 
 class Settings(BaseSettings):
-    gemini_api_key: str = ""
+    groq_api_key: str = ""
     environment: str = "development"
     max_file_size_mb: int = 10
-    allowed_origins: list[str] = ["http://localhost:5173"]
+    allowed_origins_raw: str = "http://localhost:5173"
+
+    @property
+    def allowed_origins(self) -> list[str]:
+        return [o.strip() for o in self.allowed_origins_raw.split(",") if o.strip()]
 
     class Config:
         env_file = ".env"
