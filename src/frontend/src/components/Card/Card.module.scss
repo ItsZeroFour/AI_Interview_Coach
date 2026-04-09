@@ -1,0 +1,55 @@
+@use '../../styles/variables' as *;
+
+.card {
+  border-radius: $radius-lg;
+  transition:
+    background $transition-base,
+    border-color $transition-base,
+    box-shadow $transition-base,
+    transform $transition-base;
+}
+
+.default {
+  background: $color-bg-secondary;
+}
+
+.bordered {
+  background: $color-bg-secondary;
+  border: 1px solid $color-border;
+}
+
+.glow {
+  background: $color-bg-secondary;
+  border: 1px solid $color-border-accent;
+  box-shadow: $shadow-glow;
+}
+
+.pad-sm {
+  padding: $spacing-md;
+}
+
+.pad-md {
+  padding: $spacing-lg;
+
+  @include respond-to($breakpoint-sm) {
+    padding: $spacing-md;
+  }
+}
+
+.pad-lg {
+  padding: $spacing-2xl;
+
+  @include respond-to($breakpoint-sm) {
+    padding: $spacing-lg;
+  }
+}
+
+.hoverable {
+  cursor: pointer;
+
+  &:hover {
+    background: $color-bg-elevated;
+    transform: translateY(-2px);
+    box-shadow: $shadow-md;
+  }
+}

@@ -1,0 +1,97 @@
+@use '../../styles/variables' as *;
+
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba($color-bg-primary, 0.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid $color-border-light;
+}
+
+.headerInner {
+  @include container;
+  @include flex-between;
+  height: 60px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  text-decoration: none;
+  color: $color-text-primary;
+}
+
+.logoIcon {
+  @include flex-center;
+  width: 32px;
+  height: 32px;
+  background: $color-accent;
+  color: $color-text-inverse;
+  font-family: $font-heading;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-bold;
+  border-radius: $radius-sm;
+  letter-spacing: 0.02em;
+}
+
+.logoText {
+  font-family: $font-heading;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  letter-spacing: $letter-spacing-tight;
+
+  @include respond-to($breakpoint-sm) {
+    display: none;
+  }
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+}
+
+.navLink {
+  padding: $spacing-sm $spacing-md;
+  font-family: $font-heading;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-text-secondary;
+  text-decoration: none;
+  border-radius: $radius-sm;
+  transition:
+    color $transition-fast,
+    background $transition-fast;
+
+  &:hover {
+    color: $color-text-primary;
+    background: $color-bg-elevated;
+  }
+
+  @include respond-to($breakpoint-sm) {
+    padding: $spacing-sm;
+    font-size: $font-size-xs;
+  }
+}
+
+.active {
+  color: $color-accent;
+  background: $color-accent-soft;
+
+  &:hover {
+    color: $color-accent;
+    background: $color-accent-soft;
+  }
+}
+
+.main {
+  flex: 1;
+}

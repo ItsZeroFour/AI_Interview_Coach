@@ -1,0 +1,257 @@
+@use '../../styles/variables' as *;
+
+.home {
+  @include container;
+  padding-top: $spacing-3xl;
+  padding-bottom: $spacing-4xl;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-4xl;
+
+  @include respond-to($breakpoint-md) {
+    padding-top: $spacing-2xl;
+    gap: $spacing-3xl;
+  }
+}
+
+// === HERO ===
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-3xl;
+  align-items: center;
+
+  @include respond-to($breakpoint-lg) {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: $spacing-lg;
+
+  @include respond-to($breakpoint-lg) {
+    align-items: center;
+  }
+}
+
+.title {
+  font-size: $font-size-hero;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+
+  @include respond-to($breakpoint-md) {
+    font-size: $font-size-4xl;
+  }
+
+  @include respond-to($breakpoint-sm) {
+    font-size: $font-size-3xl;
+  }
+}
+
+.titleAccent {
+  color: $color-accent;
+}
+
+.subtitle {
+  font-size: $font-size-lg;
+  color: $color-text-secondary;
+  line-height: $line-height-relaxed;
+  max-width: 480px;
+
+  @include respond-to($breakpoint-lg) {
+    max-width: 560px;
+  }
+}
+
+.heroActions {
+  display: flex;
+  gap: $spacing-md;
+  margin-top: $spacing-sm;
+
+  @include respond-to($breakpoint-sm) {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+// === MOCK CHAT ===
+
+.heroVisual {
+  @include respond-to($breakpoint-lg) {
+    display: none;
+  }
+}
+
+.mockChat {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  padding: $spacing-lg;
+  background: $color-bg-secondary;
+  border: 1px solid $color-border;
+  border-radius: $radius-xl;
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: linear-gradient(transparent, $color-bg-secondary);
+    pointer-events: none;
+  }
+}
+
+.chatBubble {
+  padding: $spacing-md $spacing-lg;
+  background: $color-bg-elevated;
+  border-radius: $radius-md;
+  border: 1px solid $color-border-light;
+  animation: fadeSlideUp 0.5s ease both;
+
+  &:nth-child(2) { animation-delay: 0.15s; }
+  &:nth-child(3) { animation-delay: 0.3s; }
+
+  p {
+    font-size: $font-size-sm;
+    color: $color-text-secondary;
+    line-height: $line-height-relaxed;
+    margin-top: $spacing-xs;
+  }
+}
+
+.chatUser {
+  background: $color-accent-soft;
+  border-color: $color-border-accent;
+  margin-left: $spacing-2xl;
+}
+
+.chatRole {
+  font-family: $font-heading;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+  color: $color-accent;
+}
+
+// === FEATURES ===
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+}
+
+.sectionTitle {
+  font-size: $font-size-2xl;
+  text-align: center;
+}
+
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $spacing-md;
+
+  @include respond-to($breakpoint-lg) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to($breakpoint-sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.featureIcon {
+  font-size: 1.75rem;
+  margin-bottom: $spacing-md;
+}
+
+.featureTitle {
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  margin-bottom: $spacing-xs;
+}
+
+.featureDescription {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  line-height: $line-height-relaxed;
+}
+
+// === TYPES ===
+
+.types {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+}
+
+.typesList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  max-width: 600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.typeItem {
+  display: flex;
+  align-items: center;
+  gap: $spacing-lg;
+  padding: $spacing-lg;
+  border-radius: $radius-md;
+  border: 1px solid $color-border;
+  background: $color-bg-secondary;
+  transition:
+    border-color $transition-base,
+    background $transition-base;
+
+  &:hover {
+    border-color: $color-border-accent;
+    background: $color-bg-elevated;
+  }
+}
+
+.typeNumber {
+  font-family: $font-heading;
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  color: $color-accent;
+  opacity: 0.5;
+  flex-shrink: 0;
+  width: 40px;
+}
+
+.typeLabel {
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  margin-bottom: 2px;
+}
+
+.typeDescription {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+}
+
+// === АНИМАЦИИ ===
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

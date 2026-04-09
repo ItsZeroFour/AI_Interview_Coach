@@ -1,0 +1,40 @@
+@use '../../styles/variables' as *;
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: $spacing-xs $spacing-sm;
+  font-family: $font-heading;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  letter-spacing: $letter-spacing-wide;
+  text-transform: uppercase;
+  border-radius: $radius-full;
+  white-space: nowrap;
+}
+
+.default {
+  background: $color-bg-elevated;
+  color: $color-text-secondary;
+  border: 1px solid $color-border;
+}
+
+.accent {
+  background: $color-accent-soft;
+  color: $color-accent;
+}
+
+.success {
+  background: $color-success-soft;
+  color: $color-success;
+}
+
+.warning {
+  background: rgba(251, 146, 60, 0.10);
+  color: $color-warning;
+}
+
+.error {
+  background: rgba(248, 113, 113, 0.10);
+  color: $color-error;
+}

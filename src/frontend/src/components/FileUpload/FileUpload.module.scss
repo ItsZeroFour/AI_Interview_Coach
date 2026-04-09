@@ -1,0 +1,94 @@
+@use '../../styles/variables' as *;
+
+.dropzone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-2xl;
+  border: 2px dashed $color-border;
+  border-radius: $radius-lg;
+  background: $color-bg-input;
+  cursor: pointer;
+  transition:
+    border-color $transition-base,
+    background $transition-base;
+  min-height: 160px;
+
+  &:hover {
+    border-color: $color-text-muted;
+    background: $color-bg-secondary;
+  }
+
+  @include respond-to($breakpoint-sm) {
+    padding: $spacing-lg;
+    min-height: 130px;
+  }
+}
+
+.active {
+  border-color: $color-accent;
+  background: $color-accent-soft;
+}
+
+.hasError {
+  border-color: $color-error;
+}
+
+.input {
+  display: none;
+}
+
+.placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.uploadIcon {
+  @include flex-center;
+  width: 44px;
+  height: 44px;
+  border-radius: $radius-full;
+  background: $color-bg-elevated;
+  border: 1px solid $color-border;
+  font-size: $font-size-xl;
+  color: $color-text-secondary;
+  margin-bottom: $spacing-xs;
+}
+
+.text {
+  font-family: $font-heading;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-text-primary;
+}
+
+.hint {
+  font-size: $font-size-xs;
+  color: $color-text-muted;
+}
+
+.fileInfo {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.fileIcon {
+  font-size: $font-size-xl;
+}
+
+.fileName {
+  font-family: $font-heading;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-accent;
+}
+
+.error {
+  font-size: $font-size-xs;
+  color: $color-error;
+  margin-top: $spacing-sm;
+}

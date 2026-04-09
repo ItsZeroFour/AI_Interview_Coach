@@ -1,6 +1,6 @@
-@import "./variables";
+@import 'variables';
 
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap');
 
 *,
 *::before,
@@ -14,20 +14,29 @@ html {
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
 
   @include respond-to($breakpoint-sm) {
-    font-size: 14px;
+    font-size: 15px;
   }
 }
 
 body {
-  font-family: $font-family;
+  font-family: $font-body;
   font-size: $font-size-base;
   font-weight: $font-weight-normal;
   line-height: $line-height-normal;
   color: $color-text-primary;
   background-color: $color-bg-primary;
   min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-heading;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-tight;
+  letter-spacing: $letter-spacing-tight;
+  color: $color-text-primary;
 }
 
 a {
@@ -44,27 +53,29 @@ button {
   font-family: inherit;
   cursor: pointer;
   border: none;
-  outline: none;
+  background: none;
 }
 
 input,
-textarea {
+textarea,
+select {
   font-family: inherit;
-  outline: none;
+  font-size: inherit;
 }
 
-img {
-  max-width: 100%;
+img,
+svg {
   display: block;
+  max-width: 100%;
 }
 
 ::selection {
   background: $color-accent;
-  color: $color-text-primary;
+  color: $color-text-inverse;
 }
 
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-track {
@@ -74,10 +85,20 @@ img {
 ::-webkit-scrollbar-thumb {
   background: $color-border;
   border-radius: $radius-full;
+
+  &:hover {
+    background: $color-text-muted;
+  }
 }
 
-.page {
-  @include container;
-  padding-top: $spacing-3xl;
-  padding-bottom: $spacing-3xl;
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
