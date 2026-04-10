@@ -1,3 +1,5 @@
+import logging
+
 from fastapi import APIRouter, HTTPException
 
 from app.models.schemas import (
@@ -7,10 +9,13 @@ from app.models.schemas import (
     QuestionResponse,
     InterviewReport,
     ChatMessage,
+    AnswerEvaluation,
 )
 from app.services.session_manager import sessions
 from app.services.ai.agent import generate_question, evaluate_answer, generate_report
 from app.services.ai.prompts import get_question_type
+
+logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/api/interview", tags=["interview"])
 
@@ -32,8 +37,9 @@ async def start_interview(req: StartInterviewRequest):
 
     try:
         question_text = await generate_question(session)
-    except Exception:
-        raise HTTPException(502, "Ошибка генерации вопроса. Проверьте API-ключ Gemini.")
+    except Exception as e:
+        logger.error(f"Ошибка генерации вопроса: {e}", exc_info=True)
+        raise HTTPException(502, f"Ошибка генерации вопроса: {e}")
 
     q_type = get_question_type(session.interview_type.value, 1)
     session.chat_history.append(ChatMessage(role="assistant", content=question_text))
@@ -72,8 +78,8 @@ async def submit_answer(req: AnswerRequest):
             answer=req.answer,
             job_description=session.job_description,
         )
-    except Exception:
-        from app.models.schemas import AnswerEvaluation
+    except Exception as e:
+        logger.warning(f"Ошибка оценки ответа: {e}")
         evaluation = AnswerEvaluation(
             score=3,
             strengths=["Ответ получен"],
@@ -100,9 +106,10 @@ async def submit_answer(req: AnswerRequest):
                 question_number=session.current_question,
                 total_questions=session.questions_count,
             )
-        except Exception:
+        except Exception as e:
+            logger.warning(f"Ошибка генерации следующего вопроса: {e}")
             is_finished = True
-    
+
     if is_finished:
         session.is_finished = True
         session.is_active = False
@@ -125,8 +132,9 @@ async def get_report(session_id: str):
 
     try:
         report = await generate_report(session)
-    except Exception:
-        raise HTTPException(502, "Ошибка генерации отчёта")
+    except Exception as e:
+        logger.error(f"Ошибка генерации отчёта: {e}", exc_info=True)
+        raise HTTPException(502, f"Ошибка генерации отчёта: {e}")
 
     return report
 

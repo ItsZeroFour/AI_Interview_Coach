@@ -1,0 +1,259 @@
+@use '../../styles/variables' as *;
+
+.page {
+  @include container;
+  padding-top: $spacing-2xl;
+  padding-bottom: $spacing-4xl;
+  max-width: 680px;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.title {
+  font-size: $font-size-2xl;
+}
+
+.steps {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.step {
+  font-family: $font-heading;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-text-muted;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $radius-sm;
+  transition: color $transition-base;
+}
+
+.stepActive {
+  color: $color-accent;
+  background: $color-accent-soft;
+}
+
+.stepDone {
+  color: $color-success;
+}
+
+.stepDivider {
+  width: 24px;
+  height: 1px;
+  background: $color-border;
+}
+
+// === ERROR ===
+
+.errorBanner {
+  @include flex-between;
+  padding: $spacing-md;
+  background: rgba(248, 113, 113, 0.08);
+  border: 1px solid rgba(248, 113, 113, 0.25);
+  border-radius: $radius-md;
+  color: $color-error;
+  font-size: $font-size-sm;
+}
+
+.errorClose {
+  color: $color-error;
+  font-size: $font-size-base;
+  opacity: 0.6;
+  transition: opacity $transition-fast;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+// === UPLOAD STEP ===
+
+.uploadStep {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.stepTitle {
+  font-size: $font-size-xl;
+  margin-bottom: $spacing-xs;
+}
+
+.stepDescription {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  margin-bottom: $spacing-lg;
+}
+
+.loadingText {
+  text-align: center;
+  font-size: $font-size-sm;
+  color: $color-accent;
+  margin-top: $spacing-md;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+// === CONFIGURE STEP ===
+
+.configureStep {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.resumeHeader {
+  @include flex-between;
+  margin-bottom: $spacing-md;
+}
+
+.filename {
+  font-family: $font-mono;
+  font-size: $font-size-xs;
+  color: $color-text-muted;
+  margin-top: $spacing-xs;
+}
+
+.resumeInfo {
+  display: flex;
+  gap: $spacing-xl;
+  margin-bottom: $spacing-md;
+
+  @include respond-to($breakpoint-sm) {
+    flex-direction: column;
+    gap: $spacing-sm;
+  }
+}
+
+.infoItem {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.infoLabel {
+  font-family: $font-heading;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  color: $color-text-muted;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+  margin-bottom: $spacing-xs;
+}
+
+.infoValue {
+  font-size: $font-size-sm;
+  color: $color-text-primary;
+}
+
+.skillsSection {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+// === CONFIG ===
+
+.configTitle {
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  margin-bottom: $spacing-sm;
+
+  &:not(:first-child) {
+    margin-top: $spacing-lg;
+  }
+}
+
+.typeGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-sm;
+
+  @include respond-to($breakpoint-sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.typeOption {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: $spacing-md;
+  background: $color-bg-input;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  text-align: left;
+  transition:
+    border-color $transition-base,
+    background $transition-base;
+
+  &:hover {
+    border-color: $color-text-muted;
+  }
+}
+
+.typeSelected {
+  border-color: $color-accent;
+  background: $color-accent-soft;
+
+  .typeLabel {
+    color: $color-accent;
+  }
+}
+
+.typeLabel {
+  font-family: $font-heading;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.typeDesc {
+  font-size: $font-size-xs;
+  color: $color-text-muted;
+}
+
+.countGrid {
+  display: flex;
+  gap: $spacing-sm;
+}
+
+.countOption {
+  @include flex-center;
+  width: 52px;
+  height: 42px;
+  font-family: $font-heading;
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: $color-text-secondary;
+  background: $color-bg-input;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  transition:
+    border-color $transition-base,
+    color $transition-base,
+    background $transition-base;
+
+  &:hover {
+    border-color: $color-text-muted;
+    color: $color-text-primary;
+  }
+}
+
+.countSelected {
+  border-color: $color-accent;
+  background: $color-accent-soft;
+  color: $color-accent;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
