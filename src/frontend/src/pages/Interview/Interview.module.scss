@@ -51,8 +51,6 @@
   background: $color-border;
 }
 
-// === ERROR ===
-
 .errorBanner {
   @include flex-between;
   padding: $spacing-md;
@@ -73,8 +71,6 @@
     opacity: 1;
   }
 }
-
-// === UPLOAD STEP ===
 
 .uploadStep {
   display: flex;
@@ -100,8 +96,6 @@
   margin-top: $spacing-md;
   animation: pulse 1.5s ease-in-out infinite;
 }
-
-// === CONFIGURE STEP ===
 
 .configureStep {
   display: flex;
@@ -159,8 +153,6 @@
   gap: $spacing-sm;
 }
 
-// === CONFIG ===
-
 .configTitle {
   font-size: $font-size-base;
   font-weight: $font-weight-semibold;
@@ -190,9 +182,7 @@
   border: 1px solid $color-border;
   border-radius: $radius-md;
   text-align: left;
-  transition:
-    border-color $transition-base,
-    background $transition-base;
+  transition: border-color $transition-base, background $transition-base;
 
   &:hover {
     border-color: $color-text-muted;
@@ -236,10 +226,7 @@
   background: $color-bg-input;
   border: 1px solid $color-border;
   border-radius: $radius-md;
-  transition:
-    border-color $transition-base,
-    color $transition-base,
-    background $transition-base;
+  transition: border-color $transition-base, color $transition-base, background $transition-base;
 
   &:hover {
     border-color: $color-text-muted;

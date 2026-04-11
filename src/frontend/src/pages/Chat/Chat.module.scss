@@ -1,0 +1,322 @@
+@use '../../styles/variables' as *;
+
+.page {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 60px);
+  max-width: 760px;
+  margin: 0 auto;
+  padding-inline: $container-padding;
+}
+
+// === TOP BAR ===
+
+.topBar {
+  padding: $spacing-md 0;
+  border-bottom: 1px solid $color-border-light;
+  flex-shrink: 0;
+}
+
+.topBarLeft {
+  @include flex-between;
+  margin-bottom: $spacing-sm;
+}
+
+.topTitle {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+}
+
+.topProgress {
+  font-family: $font-mono;
+  font-size: $font-size-sm;
+  color: $color-text-muted;
+}
+
+.progressBar {
+  height: 3px;
+  background: $color-border;
+  border-radius: $radius-full;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: $color-accent;
+  border-radius: $radius-full;
+  transition: width 0.5s ease;
+}
+
+// === CHAT AREA ===
+
+.chatArea {
+  flex: 1;
+  overflow-y: auto;
+  padding: $spacing-lg 0;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+// === MESSAGES ===
+
+.message {
+  display: flex;
+  max-width: 85%;
+  animation: fadeIn 0.3s ease;
+
+  @include respond-to($breakpoint-sm) {
+    max-width: 95%;
+  }
+}
+
+.ai {
+  align-self: flex-start;
+}
+
+.user {
+  align-self: flex-end;
+}
+
+.bubble {
+  padding: $spacing-md $spacing-lg;
+  border-radius: $radius-lg;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+
+  .ai & {
+    background: $color-bg-secondary;
+    border: 1px solid $color-border;
+  }
+
+  .user & {
+    background: $color-accent-soft;
+    border: 1px solid $color-border-accent;
+  }
+
+  @include respond-to($breakpoint-sm) {
+    padding: $spacing-sm $spacing-md;
+  }
+}
+
+.bubbleHeader {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.bubbleRole {
+  font-family: $font-heading;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+  color: $color-accent;
+}
+
+.bubbleText {
+  font-size: $font-size-base;
+  line-height: $line-height-relaxed;
+  color: $color-text-primary;
+  white-space: pre-wrap;
+}
+
+// === EVALUATION CARD ===
+
+.evalCard {
+  background: $color-bg-secondary;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  width: 100%;
+
+  @include respond-to($breakpoint-sm) {
+    padding: $spacing-md;
+  }
+}
+
+.evalHeader {
+  @include flex-between;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+}
+
+.evalLabel {
+  font-family: $font-heading;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $color-text-secondary;
+}
+
+.scoreDots {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: $color-border;
+  transition: background 0.2s;
+}
+
+.dotFilled {
+  background: $color-accent;
+}
+
+.scoreText {
+  font-family: $font-mono;
+  font-size: $font-size-xs;
+  color: $color-text-muted;
+  margin-left: $spacing-xs;
+}
+
+.evalSection {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.evalSectionTitle {
+  font-family: $font-heading;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  color: $color-text-muted;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+  margin-bottom: 2px;
+}
+
+.evalItem {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  line-height: $line-height-normal;
+  display: flex;
+  gap: $spacing-sm;
+}
+
+.evalPlus {
+  color: $color-success;
+  font-weight: $font-weight-bold;
+  flex-shrink: 0;
+}
+
+.evalMinus {
+  color: $color-warning;
+  flex-shrink: 0;
+}
+
+.evalComment {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  font-style: italic;
+  padding-top: $spacing-sm;
+  border-top: 1px solid $color-border-light;
+}
+
+// === TYPING ===
+
+.typing {
+  display: flex;
+  gap: 5px;
+  padding: $spacing-xs 0;
+
+  span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: $color-text-muted;
+    animation: typingBounce 1.2s ease-in-out infinite;
+
+    &:nth-child(2) { animation-delay: 0.15s; }
+    &:nth-child(3) { animation-delay: 0.3s; }
+  }
+}
+
+// === FINISHED ===
+
+.finishedCard {
+  text-align: center;
+  padding: $spacing-2xl;
+  background: $color-bg-secondary;
+  border: 1px solid $color-border-accent;
+  border-radius: $radius-lg;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-md;
+  animation: fadeIn 0.4s ease;
+
+  h3 {
+    font-size: $font-size-xl;
+    color: $color-accent;
+  }
+
+  p {
+    font-size: $font-size-sm;
+    color: $color-text-secondary;
+    max-width: 400px;
+  }
+}
+
+// === INPUT AREA ===
+
+.inputArea {
+  padding: $spacing-md 0 $spacing-lg;
+  border-top: 1px solid $color-border-light;
+  display: flex;
+  gap: $spacing-sm;
+  align-items: flex-end;
+  flex-shrink: 0;
+}
+
+.input {
+  flex: 1;
+  padding: $spacing-md;
+  background: $color-bg-input;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  color: $color-text-primary;
+  font-family: $font-body;
+  font-size: $font-size-base;
+  line-height: $line-height-normal;
+  resize: none;
+  transition: border-color $transition-base;
+
+  &::placeholder {
+    color: $color-text-muted;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $color-accent;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+  }
+}
+
+// === ANIMATIONS ===
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes typingBounce {
+  0%, 60%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-6px); }
+}
