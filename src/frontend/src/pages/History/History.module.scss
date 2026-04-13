@@ -1,0 +1,138 @@
+@use '../../styles/variables' as *;
+
+.page {
+  @include container;
+  padding-top: $spacing-2xl;
+  padding-bottom: $spacing-4xl;
+  max-width: 760px;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+}
+
+.header {
+  @include flex-between;
+  flex-wrap: wrap;
+  gap: $spacing-md;
+}
+
+.title {
+  font-size: $font-size-2xl;
+}
+
+// === LOADING ===
+
+.loadingState {
+  @include flex-center;
+  flex-direction: column;
+  gap: $spacing-md;
+  padding: $spacing-4xl 0;
+  color: $color-text-secondary;
+  font-size: $font-size-sm;
+}
+
+.spinner {
+  width: 28px;
+  height: 28px;
+  border: 3px solid $color-border;
+  border-top-color: $color-accent;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+// === ERROR ===
+
+.errorBanner {
+  padding: $spacing-md;
+  background: rgba(248, 113, 113, 0.08);
+  border: 1px solid rgba(248, 113, 113, 0.25);
+  border-radius: $radius-md;
+  color: $color-error;
+  font-size: $font-size-sm;
+}
+
+// === EMPTY STATE ===
+
+.emptyState {
+  @include flex-center;
+  flex-direction: column;
+  gap: $spacing-md;
+  padding: $spacing-4xl $spacing-lg;
+  text-align: center;
+}
+
+.emptyIcon {
+  font-size: 3rem;
+  opacity: 0.4;
+}
+
+.emptyTitle {
+  font-size: $font-size-xl;
+  color: $color-text-primary;
+}
+
+.emptyText {
+  font-size: $font-size-sm;
+  color: $color-text-muted;
+  max-width: 320px;
+}
+
+// === SESSION LIST ===
+
+.sessionList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.sessionCard {
+  @include flex-between;
+  gap: $spacing-md;
+
+  @include respond-to($breakpoint-sm) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.sessionInfo {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  flex: 1;
+  min-width: 0;
+}
+
+.sessionTop {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  flex-wrap: wrap;
+}
+
+.sessionFile {
+  font-family: $font-heading;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  color: $color-text-primary;
+  @include text-truncate;
+}
+
+.sessionMeta {
+  display: flex;
+  gap: $spacing-lg;
+
+  @include respond-to($breakpoint-sm) {
+    gap: $spacing-md;
+  }
+}
+
+.metaItem {
+  font-family: $font-mono;
+  font-size: $font-size-xs;
+  color: $color-text-muted;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

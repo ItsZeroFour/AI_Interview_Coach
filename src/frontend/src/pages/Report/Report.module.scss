@@ -1,0 +1,249 @@
+@use '../../styles/variables' as *;
+
+.page {
+  @include container;
+  padding-top: $spacing-2xl;
+  padding-bottom: $spacing-4xl;
+  max-width: 860px;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+}
+
+// === HEADER ===
+
+.header {
+  @include flex-between;
+  flex-wrap: wrap;
+  gap: $spacing-md;
+}
+
+.title {
+  font-size: $font-size-2xl;
+  margin-top: $spacing-sm;
+}
+
+.subtitle {
+  font-size: $font-size-sm;
+  color: $color-text-muted;
+  margin-top: 2px;
+}
+
+// === LOADING / ERROR ===
+
+.loadingState {
+  @include flex-center;
+  flex-direction: column;
+  gap: $spacing-md;
+  padding: $spacing-4xl 0;
+  color: $color-text-secondary;
+  font-size: $font-size-sm;
+}
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid $color-border;
+  border-top-color: $color-accent;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+.errorState {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-md;
+
+  h2 {
+    font-size: $font-size-xl;
+  }
+
+  p {
+    color: $color-text-secondary;
+    font-size: $font-size-sm;
+  }
+}
+
+// === SCORE CIRCLE ===
+
+.topGrid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: $spacing-lg;
+
+  @include respond-to($breakpoint-md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cardTitle {
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  margin-bottom: $spacing-md;
+  color: $color-text-secondary;
+}
+
+.scoreCenter {
+  @include flex-center;
+  padding: $spacing-md 0;
+}
+
+.scoreCircle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.scoreArc {
+  transition: stroke-dashoffset 1s ease;
+}
+
+.scoreValue {
+  fill: $color-text-primary;
+  font-family: $font-heading;
+  font-size: 28px;
+  font-weight: $font-weight-bold;
+}
+
+.scoreMax {
+  fill: $color-text-muted;
+  font-family: $font-heading;
+  font-size: 11px;
+}
+
+.scoreLabel {
+  font-family: $font-heading;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-accent;
+}
+
+// === RADAR ===
+
+.radarWrap {
+  width: 100%;
+  min-height: 250px;
+}
+
+// === COMPETENCY BARS ===
+
+.competencyList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.competencyItem {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+
+  @include respond-to($breakpoint-sm) {
+    gap: $spacing-sm;
+  }
+}
+
+.competencyName {
+  font-family: $font-heading;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-text-primary;
+  width: 160px;
+  flex-shrink: 0;
+
+  @include respond-to($breakpoint-sm) {
+    width: 100px;
+    font-size: $font-size-xs;
+  }
+}
+
+.competencyBar {
+  flex: 1;
+  height: 8px;
+  background: $color-border;
+  border-radius: $radius-full;
+  overflow: hidden;
+}
+
+.competencyFill {
+  height: 100%;
+  background: $color-accent;
+  border-radius: $radius-full;
+  transition: width 0.8s ease;
+}
+
+.competencyScore {
+  font-family: $font-mono;
+  font-size: $font-size-xs;
+  color: $color-text-muted;
+  width: 32px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+// === SUMMARY ===
+
+.summaryText {
+  font-size: $font-size-base;
+  color: $color-text-secondary;
+  line-height: $line-height-relaxed;
+}
+
+// === FEEDBACK LISTS ===
+
+.bottomGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-lg;
+
+  @include respond-to($breakpoint-md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.feedbackList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.feedbackItem {
+  display: flex;
+  gap: $spacing-sm;
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  line-height: $line-height-normal;
+}
+
+.feedbackPlus {
+  color: $color-success;
+  font-weight: $font-weight-bold;
+  flex-shrink: 0;
+  width: 16px;
+}
+
+.feedbackArrow {
+  color: $color-warning;
+  flex-shrink: 0;
+  width: 16px;
+}
+
+// === ACTIONS ===
+
+.actions {
+  display: flex;
+  gap: $spacing-md;
+  justify-content: center;
+  padding-top: $spacing-md;
+
+  @include respond-to($breakpoint-sm) {
+    flex-direction: column;
+  }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
