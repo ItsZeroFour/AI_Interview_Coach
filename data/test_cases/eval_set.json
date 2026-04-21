@@ -1,0 +1,202 @@
+[
+  {
+    "id": 1,
+    "scenario": "Junior Frontend, сильный ответ",
+    "resume": "1.5 года опыта. HTML, CSS, JavaScript, React, Git. Один коммерческий проект — интернет-магазин на React. Образование: бакалавр информатики.",
+    "job_description": "Junior Frontend Developer. Требования: React, TypeScript, REST API, Git. Будет работать над внутренним порталом компании.",
+    "question_type": "behavioral",
+    "candidate_answer": "На прошлом проекте интернет-магазина я отвечал за корзину и оформление заказа. Столкнулся с проблемой: при большом количестве товаров страница тормозила. Я внедрил виртуализацию списка через react-window, и время рендера упало с 3 секунд до 200мс. Тимлид отметил это на ретро как лучшее техническое решение спринта.",
+    "expected_score": 5,
+    "expected_feedback_contains": ["конкретный пример", "измеримый результат", "STAR"]
+  },
+  {
+    "id": 2,
+    "scenario": "Junior Frontend, слабый ответ",
+    "resume": "1.5 года опыта. HTML, CSS, JavaScript, React, Git. Один коммерческий проект — интернет-магазин на React.",
+    "job_description": "Junior Frontend Developer. Требования: React, TypeScript, REST API, Git.",
+    "question_type": "technical",
+    "candidate_answer": "Ну я знаю React, делал проекты. TypeScript тоже немного знаю. В целом разберусь.",
+    "expected_score": 2,
+    "expected_feedback_contains": ["конкретика", "примеры", "поверхностно"]
+  },
+  {
+    "id": 3,
+    "scenario": "Middle Backend, сильный технический ответ",
+    "resume": "3 года опыта. Python, Django, FastAPI, PostgreSQL, Docker, Redis, CI/CD. Два коммерческих проекта: CRM-система и платёжный сервис.",
+    "job_description": "Middle Python Developer. Требования: FastAPI, микросервисы, PostgreSQL, Docker, AWS. Проект: платформа аналитики.",
+    "question_type": "technical",
+    "candidate_answer": "В платёжном сервисе я проектировал систему очередей на RabbitMQ для асинхронной обработки транзакций. Основная проблема была в том, что при пиковых нагрузках (до 500 транзакций в секунду) синхронная обработка не справлялась. Я разделил процесс на этапы: валидация → очередь → обработка → нотификация. Каждый этап — отдельный consumer. Результат: время ответа API упало с 2с до 180мс, а пропускная способность выросла в 8 раз.",
+    "expected_score": 5,
+    "expected_feedback_contains": ["архитектурное решение", "цифры", "масштабирование"]
+  },
+  {
+    "id": 4,
+    "scenario": "Middle Backend, нерелевантный ответ",
+    "resume": "3 года опыта. Python, Django, FastAPI, PostgreSQL, Docker.",
+    "job_description": "Middle Python Developer. Требования: FastAPI, микросервисы, PostgreSQL.",
+    "question_type": "situational",
+    "candidate_answer": "Мне нравится программирование, я всегда хотел работать в IT. В школе увлекался математикой, потом поступил на информатику. Думаю, что я хороший командный игрок.",
+    "expected_score": 1,
+    "expected_feedback_contains": ["не по теме", "не отвечает на вопрос"]
+  },
+  {
+    "id": 5,
+    "scenario": "QA Engineer, средний ответ",
+    "resume": "2 года опыта QA. Ручное тестирование, Selenium, Python, Postman, Jira. Один проект — банковское приложение.",
+    "job_description": "QA Engineer. Автоматизация тестирования, CI/CD, Python, Selenium, API-тестирование.",
+    "question_type": "behavioral",
+    "candidate_answer": "Я автоматизировал тесты для регрессии в банковском приложении. Использовал Selenium с Python. Было около 50 тестов. Это помогло команде.",
+    "expected_score": 3,
+    "expected_feedback_contains": ["не хватает деталей", "результат", "сколько времени сэкономили"]
+  },
+  {
+    "id": 6,
+    "scenario": "DevOps, сильный ситуационный ответ",
+    "resume": "4 года опыта. Linux, Docker, Kubernetes, Terraform, AWS, CI/CD (Jenkins, GitLab CI), мониторинг (Prometheus, Grafana).",
+    "job_description": "DevOps Engineer. Kubernetes, AWS, Terraform, CI/CD пайплайны, SRE-практики.",
+    "question_type": "situational",
+    "candidate_answer": "Если бы продакшн упал в пятницу вечером, первое — проверяю алерты в Grafana и логи в Kibana, определяю scope проблемы. Параллельно пишу в Slack incident-канал, что взял инцидент. Если проблема в последнем деплое — делаю rollback через kubectl rollout undo. Если инфраструктурная — смотрю status page AWS, проверяю health-check'и подов. После устранения — пишу post-mortem с root cause и action items, чтобы это не повторилось.",
+    "expected_score": 5,
+    "expected_feedback_contains": ["структурированный подход", "конкретные инструменты", "post-mortem"]
+  },
+  {
+    "id": 7,
+    "scenario": "Data Analyst, средний ответ",
+    "resume": "1 год опыта. Python, pandas, SQL, Excel, Power BI. Стажировка в маркетинговом агентстве.",
+    "job_description": "Junior Data Analyst. SQL, Python, визуализация данных, A/B-тестирование.",
+    "question_type": "technical",
+    "candidate_answer": "A/B тестирование — это когда делим пользователей на две группы и сравниваем результаты. Нужно смотреть на статистическую значимость. Я использовал это на стажировке, но деталей не помню.",
+    "expected_score": 3,
+    "expected_feedback_contains": ["теория без практики", "конкретный пример", "p-value"]
+  },
+  {
+    "id": 8,
+    "scenario": "Senior Frontend, сильный ответ о лидерстве",
+    "resume": "6 лет опыта. React, TypeScript, Next.js, Node.js, GraphQL. Тимлид фронтенд-команды из 4 человек.",
+    "job_description": "Senior Frontend Developer / Team Lead. React, TypeScript, архитектура, менторинг.",
+    "question_type": "behavioral",
+    "candidate_answer": "Когда я стал тимлидом, один из разработчиков систематически не проходил код-ревью с первого раза. Вместо формальных замечаний я организовал еженедельные парные сессии, где мы вместе разбирали паттерны и антипаттерны на примерах нашего кода. Через 2 месяца количество замечаний на его PR упало с 8-10 до 1-2, а он начал сам ревьюить код джуниоров. Это дало мне понять, что менторинг эффективнее критики.",
+    "expected_score": 5,
+    "expected_feedback_contains": ["лидерство", "конкретные действия", "измеримый результат", "вывод"]
+  },
+  {
+    "id": 9,
+    "scenario": "Junior Backend, ответ-клише",
+    "resume": "Без опыта. Python, Flask, SQL, Git. Учебные проекты: TODO-приложение, чат-бот.",
+    "job_description": "Junior Backend Developer. Python, Django/FastAPI, PostgreSQL, Docker.",
+    "question_type": "behavioral",
+    "candidate_answer": "Я перфекционист и трудоголик. Моя слабая сторона — я слишком много работаю. Я всегда стараюсь делать всё идеально и иногда засиживаюсь допоздна.",
+    "expected_score": 1,
+    "expected_feedback_contains": ["клише", "не отвечает на вопрос", "конкретный пример"]
+  },
+  {
+    "id": 10,
+    "scenario": "Mobile Developer, хороший ответ",
+    "resume": "2.5 года опыта. Kotlin, Android SDK, Jetpack Compose, MVVM, Retrofit. Два приложения в Google Play.",
+    "job_description": "Android Developer. Kotlin, Jetpack Compose, Clean Architecture, работа с API.",
+    "question_type": "technical",
+    "candidate_answer": "В последнем приложении я перевёл UI с XML на Jetpack Compose. Главная сложность — миграция кастомных вью, которые использовали Canvas. Я написал обёртку через AndroidView для плавного перехода и мигрировал экраны поэтапно. За 3 месяца перевели 80% экранов. Объём UI-кода сократился примерно на 40%, а скорость разработки новых экранов выросла — вместо 2-3 дней на экран стало уходить 1 день.",
+    "expected_score": 4,
+    "expected_feedback_contains": ["конкретный опыт", "поэтапный подход", "измеримый результат"]
+  },
+  {
+    "id": 11,
+    "scenario": "Fullstack, ответ без структуры",
+    "resume": "2 года опыта. JavaScript, React, Node.js, Express, MongoDB, Git.",
+    "job_description": "Fullstack Developer. React, Node.js, TypeScript, PostgreSQL.",
+    "question_type": "situational",
+    "candidate_answer": "Ну если дедлайн горит, я бы работал больше. Может попросил бы помощь. Зависит от ситуации. Обычно я справляюсь.",
+    "expected_score": 2,
+    "expected_feedback_contains": ["нет структуры", "расплывчато", "конкретные шаги"]
+  },
+  {
+    "id": 12,
+    "scenario": "ML Engineer, сильный ответ",
+    "resume": "3 года опыта. Python, PyTorch, scikit-learn, pandas, Docker, MLflow. Опыт с NLP и CV задачами.",
+    "job_description": "ML Engineer. PyTorch, NLP, deployment моделей, MLOps.",
+    "question_type": "technical",
+    "candidate_answer": "На прошлом проекте я разрабатывал систему классификации обращений клиентов по 12 категориям. Baseline на TF-IDF + LogReg давал F1 = 0.72. Я перешёл на fine-tuned RuBERT, добавил аугментацию через обратный перевод и получил F1 = 0.89. Модель обслуживала 200 запросов в минуту через FastAPI + Docker. Использовал MLflow для трекинга экспериментов — всего было 23 итерации.",
+    "expected_score": 5,
+    "expected_feedback_contains": ["baseline vs improved", "конкретные метрики", "production"]
+  },
+  {
+    "id": 13,
+    "scenario": "Project Manager, средний ответ",
+    "resume": "4 года опыта PM. Agile, Scrum, Jira, Confluence. Управление командой до 8 человек.",
+    "job_description": "Project Manager. Agile/Scrum, управление бэклогом, stakeholder management.",
+    "question_type": "behavioral",
+    "candidate_answer": "Когда проект выходил за рамки бюджета, я провёл встречу с командой и мы решили сократить scope. Убрали несколько фич и уложились в сроки.",
+    "expected_score": 3,
+    "expected_feedback_contains": ["какие фичи", "критерии приоритизации", "stakeholders"]
+  },
+  {
+    "id": 14,
+    "scenario": "Frontend, ответ на английском при русском интервью",
+    "resume": "2 года опыта. React, Vue, CSS, JavaScript.",
+    "job_description": "Frontend Developer. React, адаптивная вёрстка.",
+    "question_type": "technical",
+    "candidate_answer": "Well, I usually use flexbox and grid for responsive layouts. Media queries help with breakpoints. I also use rem units instead of pixels.",
+    "expected_score": 3,
+    "expected_feedback_contains": ["язык ответа", "примеры из проектов"]
+  },
+  {
+    "id": 15,
+    "scenario": "Backend, очень короткий ответ",
+    "resume": "1 год опыта. Java, Spring Boot, PostgreSQL.",
+    "job_description": "Java Developer. Spring, микросервисы, REST API.",
+    "question_type": "technical",
+    "candidate_answer": "Да, я знаю Spring Boot.",
+    "expected_score": 1,
+    "expected_feedback_contains": ["слишком коротко", "раскрыть", "примеры"]
+  },
+  {
+    "id": 16,
+    "scenario": "Designer, хороший ответ про процесс",
+    "resume": "3 года опыта. Figma, Adobe XD, UI/UX, пользовательские исследования, прототипирование.",
+    "job_description": "UX/UI Designer. Figma, дизайн-системы, пользовательское тестирование.",
+    "question_type": "behavioral",
+    "candidate_answer": "При редизайне мобильного приложения банка я начала с аудита текущего UX: проанализировала 200 обращений в поддержку и выделила 5 основных pain points. Провела 8 глубинных интервью с клиентами. На основе инсайтов создала 3 прототипа в Figma и протестировала на 15 пользователях. Финальный вариант снизил количество обращений по навигации на 35% за первый месяц после релиза.",
+    "expected_score": 5,
+    "expected_feedback_contains": ["исследование", "данные", "измеримый результат"]
+  },
+  {
+    "id": 17,
+    "scenario": "Junior, хороший ответ для своего уровня",
+    "resume": "Без коммерческого опыта. Python, Django, HTML/CSS, Git. Два учебных проекта.",
+    "job_description": "Junior Python Developer. Django, PostgreSQL, REST API.",
+    "question_type": "behavioral",
+    "candidate_answer": "В учебном проекте блог-платформы я столкнулся с N+1 проблемой — страница со списком постов делала 50 запросов к базе. Погуглил, нашёл select_related и prefetch_related в Django. После оптимизации количество запросов сократилось до 3, и страница стала загружаться за 200мс вместо 2 секунд. Это был мой первый опыт оптимизации, и я понял важность профилирования.",
+    "expected_score": 4,
+    "expected_feedback_contains": ["самостоятельное решение", "конкретные цифры", "обучаемость"]
+  },
+  {
+    "id": 18,
+    "scenario": "DevOps, размытый ответ",
+    "resume": "2 года опыта. Docker, Linux, AWS, Terraform.",
+    "job_description": "DevOps Engineer. Kubernetes, CI/CD, мониторинг.",
+    "question_type": "technical",
+    "candidate_answer": "Kubernetes — это оркестратор контейнеров. Там есть поды, сервисы, деплойменты. Я его использовал на проекте. Настраивал кластер. В целом нормально работало.",
+    "expected_score": 2,
+    "expected_feedback_contains": ["только теория", "конкретика", "какие проблемы решали"]
+  },
+  {
+    "id": 19,
+    "scenario": "Аналитик данных, хороший ситуационный ответ",
+    "resume": "2 года опыта. SQL, Python, Tableau, A/B тестирование, статистика.",
+    "job_description": "Data Analyst. SQL, Python, визуализация, продуктовая аналитика.",
+    "question_type": "situational",
+    "candidate_answer": "Если product manager просит доказать, что новая фича увеличила конверсию, я бы действовал так: сначала проверил корректность A/B теста — равномерность распределения по группам, отсутствие bias. Затем посчитал бы статистическую значимость через chi-squared тест для конверсии. Проверил бы novelty effect, посмотрев на тренд по дням. Если результат значим — подготовлю дашборд в Tableau с confidence interval и breakdown по сегментам. Если нет — честно скажу, что данных недостаточно, и предложу продлить тест.",
+    "expected_score": 5,
+    "expected_feedback_contains": ["методология", "статистика", "честность"]
+  },
+  {
+    "id": 20,
+    "scenario": "Frontend, копипаста из интернета",
+    "resume": "1 год опыта. React, JavaScript, CSS.",
+    "job_description": "Frontend Developer. React, TypeScript.",
+    "question_type": "technical",
+    "candidate_answer": "React — это JavaScript-библиотека для создания пользовательских интерфейсов. Она использует виртуальный DOM для эффективного обновления. Компоненты могут быть функциональными и классовыми. Хуки позволяют использовать состояние в функциональных компонентах.",
+    "expected_score": 2,
+    "expected_feedback_contains": ["определение из документации", "свой опыт", "не отвечает на вопрос"]
+  }
+]
